@@ -51,10 +51,7 @@ def get_article_details(driver, url, article_id):
         paragraphs = content_elem.find_elements(By.TAG_NAME, 'p')
         content = " ".join([p.text.strip() for p in paragraphs])
 
-        if "Sign in to access your portfolio" in content:
-            content = "Sign in to access your portfolio"
     except NoSuchElementException:
-        content = "Sign in to access your portfolio"
         print(f"[DEBUG] Could not find content for article {article_id}")
 
     return formatted_pub_time, content
